@@ -1,23 +1,18 @@
-# Proyek Analisis Bercak SIMUTEH (P5-P6)
-Repositori ini berisi modul untuk menganalisis bercak pada daun teh menggunakan operasi morfologi dan komponen terhubung.
-## Ringkasan Hasil P5-P6
-- **P5 (Praproses & Morfologi):** Implementasi thresholding, operasi Opening (menghilangkan noise) dan Closing (menutup lubang) menggunakan Structuring Element elips.
-- **P6 (Integrasi & Evaluasi):** Modul bercak.py berhasil dibuat. Evaluasi pada dataset simulasi menunjukkan performa yang baik. Analisis kesalahan mengidentifikasi false positive akibat bayangan dan false negative akibat kontras rendah.
-## Cara Memakai analisis_daun
-Fungsi utama untuk menganalisis citra daun adalah analisis_daun yang terdapat di dalam file src/bercak.py.
-Contoh Penggunaan:
-```python
-import cv2
-import sys
-sys.path.append('./src')
-import bercak
+# Proyek Analisis Bercak Daun Teh (SIMUTEH-1021)
 
-img = cv2.imread('path/ke/gambar_teh.png')
-hasil = bercak.analisis_daun(img)
+Repositori ini berisi rangkaian modul praktikum pengolahan citra digital untuk analisis dan deteksi bercak pada daun teh menggunakan pustaka OpenCV dan Python.
 
-print(f"Kelas Mutu: {hasil['kelas']}")
-print(f"Persen Bercak: {hasil['persen_bercak']} %")
-```
+## 📌 Ringkasan Tahapan Modul (P1 - P6)
 
-## Tag Rilis
-Versi ini ditandai dengan tag: v0.3-morfologi.
+* **Modul P1 (Lingkungan & Dasar Citra):** Inisialisasi lingkungan kerja Python, konfigurasi pustaka OpenCV dan NumPy, serta pemuatan citra dasar.
+* **Modul P2 (Analisis Ruang Warna):** Analisis karakteristik warna citra daun dan pemisahan kanal warna (RGB/BGR) untuk menonjolkan area tertentu.
+* **Modul P3 (Histogram Intensitas):** Analisis distribusi intensitas piksel dan peregangan kontras untuk optimalisasi pencahayaan citra.
+* **Modul P4 (Penapisan / Filtering):** Penerapan filter penghalus (*Gaussian Blur*) guna mereduksi *noise* pada citra daun.
+* **Modul P5 (Praproses & Deteksi Tepi):** Tahap segmentasi awal menggunakan teknik penapisan biner serta *Canny Edge Detection* untuk mendeteksi batas tepi daun dan area bercak.
+* **Modul P6 (Operasi Morfologi & Analisis Bercak):** Penerapan operasi morfologi (*Opening* untuk menghilangkan *noise* dan *Closing* untuk menutup lubang menggunakan *Structuring Element*) serta perhitungan analisis bercak daun secara komputasional.
+
+## 📁 Struktur Direktori Proyek
+* `notebook/`: Berisi file Jupyter Notebook lengkap dari modul P1 hingga P6.
+* `src/`: Berisi skrip fungsi Python pendukung (*preprocessing*, deteksi tepi, dan analisis bercak).
+* `data/`: Kumpulan data citra uji coba.
+* `hasil/`: Output parameter dan hasil pengolahan citra.
